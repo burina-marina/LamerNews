@@ -1,0 +1,83 @@
+.user-info-container {
+    box-sizing: border-box;
+    width: 450px;
+    /*height: 400px;*/
+    background-color: #404a58;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.user-info {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.login-info {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    font: bold 30px "Gotham Book", sans-serif;
+    color: #666;
+}
+
+.user-image {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+.user-login {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.detailed-info {
+    background-color: #fff;
+    padding: 15px;
+    padding-top: 1px;
+    border-radius: 5px;
+}
+
+.detailed-info>dt {
+    font: bold 20px "Gotham Book", sans-serif;
+    margin-top: 15px;
+    margin-right: 5px;
+    float: left;
+}
+
+.detailed-info>dd {
+    font: 20px "Gotham Book", sans-serif;
+    margin-top: 15px;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+}
+.user-update {
+    padding: 10px;
+    background: #5d6b7f;
+    border-radius: 5px;
+}
+
+.user-update__form:first-child {
+    margin-bottom: 10px;
+}
+
+.user-update__input-group {
+    padding-bottom: 5px;
+}
+
+.user-update__button {
+    margin-top: 5px;
+    padding: 10px;
+}

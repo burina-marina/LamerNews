@@ -1,0 +1,18 @@
+<section class="authorize-container form-container">
+
+    <ul class="authorize-choose">
+        <li
+                ng-class="{activeForm: $ctrl.$state.current.name == 'authorize.registration'}"
+                class="authorize-choose__variant authorize-choose__check-in">
+            <a ui-sref=".registration" class="authorize-choose__link">Check In</a>
+        </li>
+        <li
+                ng-class="{activeForm: $ctrl.$state.current.name == 'authorize.login'}"
+                class="authorize-choose__variant authorize-choose__check-out">
+            <a ui-sref=".login" class="authorize-choose__link">Log In</a>
+        </li>
+    </ul>
+
+    <div ui-view></div>
+
+</section>

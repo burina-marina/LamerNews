@@ -1,0 +1,118 @@
+/*user {*/
+    /*display: block;*/
+    /*background-color: #00A000;*/
+    /*width: 500px;*/
+    /*height: 400px;*/
+/*}*/
+/*}*/
+.user-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-info-container {
+    box-sizing: border-box;
+    width: 45%;
+    /*height: 400px;*/
+    background-color: #404a58;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.user-info {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.login-info {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    font: bold 30px "Gotham Book", sans-serif;
+    color: #666;
+}
+
+.user-image {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border: 1px solid #999;
+    border-radius: 5px;
+}
+
+.detailed-info {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+}
+/*.detailed-info>*{*/
+    /*display: inline-block;*/
+/*}*/
+
+.detailed-info>dt {
+    font: bold 20px "Gotham Book", sans-serif;
+    margin-top: 15px;
+    margin-right: 5px;
+    float: left;
+}
+
+.detailed-info>dd {
+    font: 20px "Gotham Book", sans-serif;
+    margin-top: 15px;
+    color: #666;
+
+}
+
+.user-activity-container {
+    /*max-width: 520px;*/
+    box-sizing: border-box;
+    background-color: #404a58;
+    width: 54%;
+    border-radius: 5px;
+}
+
+.user-activity-choose {
+    font-size: 0;
+    padding: 15px 10px 0 ;
+}
+
+.user-activity-choose__variant {
+    display: inline-block;
+    width: 50%;
+    border-radius: 5px;
+    padding: 5px 0;
+    color: #fff;
+    margin-left: -2px;
+}
+
+.user-activity-choose__link {
+    border-right: 2px solid #fff;
+    display: block;
+    padding: 5px 0;
+    font: bold 20px "Gotham Book", sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+.user-activity-choose__variant:first-child {
+    margin-left: 0 ;
+}
+.user-activity-choose__variant:last-child>.user-activity-choose__link {
+    border-right: 0;
+}
+
+.activeInfo {
+    color: #666;
+    background-color: #fff;
+}
+.user-activity-contante {
+    padding: 10px;
+}

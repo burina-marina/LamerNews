@@ -1,0 +1,108 @@
+<div class="user-info-container">
+
+    <div class="login-info">
+        <img class="user-image" src="{{$ctrl.serverUserInfo.user.avatar}}" alt="">
+        <h2 class="user-login">{{$ctrl.serverUserInfo.user.username}}</h2>
+    </div>
+
+    <dl
+            ng-if="!$ctrl.isEditInfoState"
+            class="detailed-info">
+        <dt ng-if="$ctrl.serverUserInfo.isAdmin">Email:</dt>
+        <dd ng-if="$ctrl.serverUserInfo.isAdmin">{{$ctrl.serverUserInfo.user.email}}</dd>
+        <dt>Created:</dt>
+        <dd>{{$ctrl.handlerService.timespanToHumanString($ctrl.serverUserInfo.user.registrationDate)}}</dd>
+        <dt>Posted news:</dt>
+        <dd>{{$ctrl.serverUserInfo.user.articlesCount}}</dd>
+        <dt>Posted comment:</dt>
+        <dd>{{$ctrl.serverUserInfo.user.commentCount}}</dd>
+    </dl>
+
+    <div class="user-update" ng-if="$ctrl.isEditInfoState">
+        <form
+
+                class="form user-update__form"
+                name = "$ctrl.changePasswordForm"
+                ng-submit = "$ctrl.changePassword()"
+                novalidate
+        >
+
+            <div class="input-group user-update__input-group">
+                <input
+                        type="password"
+                        name="oldPassword"
+                        class="input-field"
+                        ng-model="$ctrl.password.oldPassword"
+                        placeholder="Enter old password"
+                        required
+                />
+                <p class="input-hint" ng-show="$ctrl.changePasswordForm.oldPassword.$error.required && !$ctrl.changePasswordForm.oldPassword.$pristine">Please enter the password.</p>
+            </div>
+
+            <div class="input-group user-update__input-group">
+                <input
+                        type="password"
+                        name="newPassword"
+                        class="input-field"
+                        ng-model="$ctrl.password.newPassword"
+                        placeholder="Enter new password"
+                        required
+                        ng-minlength="5"
+
+                />
+                <div class="input-hint" ng-show="!$ctrl.changePasswordForm.newPassword.$pristine && $ctrl.changePasswordForm.newPassword.$invalid">
+                    <p ng-show="$ctrl.changePasswordForm.newPassword.$error.required">Please enter the password.</p>
+                    <p ng-show="$ctrl.changePasswordForm.newPassword.$error.minlength">Password is too short.</p>
+                </div>
+            </div>
+
+            <button
+                    type="submit"
+                    class="form-button user-update__button form-submit"
+                    ng-class="{lockButton: $ctrl.changePasswordForm.$invalid}"
+                    ng-disabled="$ctrl.changePasswordForm.$invalid"
+            > Change password </button>
+
+        </form>
+
+        <form
+                class="form user-update__form"
+                name = "$ctrl.changeEmailForm"
+                ng-submit = "$ctrl.changeEmail()"
+                novalidate
+        >
+
+            <div class="input-group user-update__input-group">
+                <input
+                        type="email"
+                        name="email"
+                        class="input-field"
+                        ng-model="$ctrl.email.email"
+                        placeholder="Email"
+                        required
+                        ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i"
+                />
+                <div class="input-hint" ng-show="!$ctrl.changeEmailForm.email.$pristine && $ctrl.changeEmailForm.email.$invalid">
+                    <p ng-show="$ctrl.changeEmailForm.email.$error.required">Please enter the password.</p>
+                    <p ng-show="$ctrl.changeEmailForm.email.$error.pattern">Email is not correct</p>
+                </div>
+            </div>
+
+            <button
+                    type="submit"
+                    class="form-button user-update__button form-submit"
+                    ng-class="{lockButton: $ctrl.changeEmailForm.$invalid}"
+                    ng-disabled="$ctrl.changeEmailForm.$invalid"
+            > Change email </button>
+
+        </form>
+
+    </div>
+
+    <button
+            ng-if="$ctrl.serverUserInfo.isAdmin"
+            type="button"
+            class="form-button authorize-button form-submit"
+            ng-click="$ctrl.editInfoState()"
+    > {{$ctrl.editInfoButton  }} </button>
+</div>

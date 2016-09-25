@@ -1,0 +1,25 @@
+<article class="comment-container">
+    <div class="comment-author__image-container">
+        <img class="comment-author__image" src="{{$ctrl.comment.authorPhoto}}" alt="">
+    </div>
+
+    <div class="comment-info">
+        <div class="comment__author-container">
+            <a
+                    ui-sref="user({username: $ctrl.comment.authorName ? $ctrl.comment.authorName : $ctrl.user.username})"
+                    class="comment__author"
+            >{{$ctrl.comment.authorName}}</a>
+            <a ng-if="$ctrl.comment.isAdmin || $ctrl.isAdmin" ng-click="$ctrl.deleteComment($ctrl.comment.commentId)" class="delete-comment-button">delete</a>
+        </div>
+
+        <p class="comment__body">{{$ctrl.comment.commentBody}}</p>
+        <div class="comment-by-container">
+            <p class="comment__date">{{$ctrl.handlerService.timespanToHumanString($ctrl.comment.postedDate)}}</p>
+            <div class="comment__article" ng-if="$ctrl.$state.current.name == 'user.comments'">
+                <span>to</span>
+                <a ui-sref="article({id: $ctrl.comment.articleId})" class="comment__article-link">{{$ctrl.comment.articleName}}</a>
+            </div>
+        </div>
+    </div>
+
+</article>

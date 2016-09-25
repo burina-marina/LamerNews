@@ -1,0 +1,12 @@
+<div class="news-block__container">
+
+    <div class="news-list__container">
+        <h2 class="news-list__caption" ng-if="$ctrl.newsBlockService.newsListType == 'top'"> Top articles </h2>
+        <h2 class="news-list__caption" ng-if="$ctrl.newsBlockService.newsListType == 'latest'">Latest articles </h2>
+
+        <news-list></news-list>
+    </div>
+
+    <div ui-view> </div>
+
+</div>

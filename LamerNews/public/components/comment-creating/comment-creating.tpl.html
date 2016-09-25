@@ -1,0 +1,23 @@
+<form
+        name = "$ctrl.addingComment"
+        novalidate
+        ng-submit = "$ctrl.addComment($ctrl.comment)"
+        class="adding-comment__form">
+
+    <div class="comment-author__image-container">
+        <img class="comment-author__image" src="{{$ctrl.userIdentification.userPhoto}}" alt="">
+    </div>
+    <textarea
+            name="comment"
+            ng-model="$ctrl.comment.comment_body"
+            required
+            placeholder="Enter comment"
+            class="adding-comment__input" ></textarea>
+    <button
+            type="submit"
+            ng-class="{lockButton: $ctrl.addingComment.$invalid}"
+            ng-disabled="$ctrl.addingComment.$invalid"
+            class="adding-comment__button">
+        <span class="adding-comment__button-icon"></span>
+    </button>
+</form>

@@ -1,0 +1,6 @@
+.article-comments--empty {
+    margin: 15px 0;
+    text-align: center;
+    font: bold 22px "Gotham Book", sans-serif;
+    color: #999;
+}

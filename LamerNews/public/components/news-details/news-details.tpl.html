@@ -1,0 +1,30 @@
+<div class="details-article__wrapper">
+
+    <div class="details-article__collapse"
+            ng-click="$ctrl.closeDetails()"
+            ng-hide="$ctrl.$state.current.name == 'article'"
+    >
+        <a href="" class="details-article__collapse-icon"> </a>
+    </div>
+
+    <div class="details-article__container">
+
+        <article-info data-article = "$ctrl.article"></article-info>
+
+        <section class="article-comments__container">
+            <h2 class="article-comments__caption"> Comments </h2>
+
+            <comment-creating
+                    ng-if="$ctrl.userIdentification.isAuthorized"
+                    data-add-comment = "$ctrl.addComment"
+            ></comment-creating>
+
+            <comments-list
+                    data-comments-arr = "$ctrl.commentsArr"
+                    data-binding-place = "$ctrl.article"
+            ></comments-list>
+            <!-- data-count = "$ctrl.article"
+            data-is-admin = "$ctrl.article.isAdmin" -->
+        </section>
+    </div>
+</div>

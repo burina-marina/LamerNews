@@ -1,0 +1,53 @@
+<article class="news-article" ng-class="{isActive: $ctrl.article.isActive}">
+    <form class="article__rating">
+        <button
+                ng-click="$ctrl.setVote($ctrl.article, 'up')"
+                ng-class="{lockButton: !$ctrl.article.isVoted}"
+                ng-disabled="!$ctrl.article.isVoted"
+                class="rating-button rating-up"
+        >
+            <span class="rating__arrow rating-up__arrow"></span>
+        </button>
+        <button
+                ng-click="$ctrl.setVote('down')"
+                ng-class="{lockButton: !$ctrl.article.isVoted}"
+                ng-disabled="!$ctrl.article.isVoted"
+                class="rating-button rating-down"
+        >
+            <span class="rating__arrow rating-down__arrow"></span>
+        </button>
+    </form>
+
+    <div class="news-article__info">
+
+        <h2 class="article__title">
+            <a href='#'>{{$ctrl.article.title}}</a>
+        </h2>
+
+        <p class="article__about">
+            <span class="text">{{$ctrl.article.rating}}</span>
+            <span class="text">votes,</span>
+
+            <span class="text">posted by</span>
+            <a ui-sref="user({username: $ctrl.article.author})" class="link">{{$ctrl.article.author}}</a>
+            <span class="text">{{$ctrl.article.postedDate}}</span>
+            <span class="text">{{$ctrl.article.commentCount}}</span>
+            <span class="text">comments</span>
+            <span class="text"
+                    ng-if="$ctrl.$state.current.name !== 'user.posts'">
+                click
+                <a
+                        ng-click="$ctrl.showDetails()"
+                        class="link"
+                > here </a>
+                <!-- ui-sref=".details({id: $ctrl.article.articleId})" -->
+
+                for discuss
+            </span>
+        </p>
+
+    </div>
+    <a ui-sref="article({id: $ctrl.article.articleId})" ng-if="$ctrl.$state.current.name == 'user.posts'" class="editing-news-article">
+
+    </a>
+</article>

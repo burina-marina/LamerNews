@@ -1,0 +1,41 @@
+<header class="site-header">
+    <h1 class="logo">
+        <a href="#" class="logo-link">LamerNews</a>
+    </h1>
+
+    <nav class="main-nav">
+        <ul class="main-nav__list">
+            <li class="main-nav__item">
+                <a ui-sref="newsBlock({type:'top'})" class="main-nav__link">top</a>
+            </li>
+            <li class="main-nav__item">
+                <a ui-sref="newsBlock({type:'latest'})" class="main-nav__link">latest</a>
+            </li>
+            <!-- <li class="main-nav__item">
+                <a ui-sref="article({id: '579a069a38c1807c2d3e7007'})" class="main-nav__link">random</a>
+            </li> -->
+            <li class="main-nav__item">
+                <a ui-sref="submit" class="main-nav__link">submit</a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav class="account-nav">
+        <ul ng-if="!$ctrl.userIdentification.username" class="account-nav__list">
+            <li class="account-nav__item">
+                <a ui-sref="authorize.registration" class="account-nav__register">Check In</a>
+            </li>
+            <li class="account-nav__item">
+                <a ui-sref="authorize.login" class="account-nav__login">Log In</a>
+            </li>
+        </ul>
+        <ul ng-if="$ctrl.userIdentification.username" class="account-nav__list">
+            <li class="account-nav__item">
+                <a ui-sref="user({username: $ctrl.userIdentification.username})" class="account-nav__login">{{$ctrl.userIdentification.username}}</a>
+            </li>
+            <li class="account-nav__item">
+                <a ng-click="$ctrl.authorizeService.logOut()" class="account-nav__register">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+</header>

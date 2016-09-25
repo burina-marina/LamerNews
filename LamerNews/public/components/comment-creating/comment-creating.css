@@ -1,0 +1,33 @@
+
+/*fb6362*/
+.adding-comment__form {
+    background-color: #404a58;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+    display: flex;
+}
+.adding-comment__input {
+    display: block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+.adding-comment__button {
+    display: flex;
+    margin-left: 5px;
+    padding: 5px;
+    background-color: #fb6362;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.adding-comment__button-icon {
+    display: block;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    background-image: url(./../common/images/sprite.png);
+    background-position: 0 -30px;
+}

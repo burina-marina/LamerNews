@@ -1,0 +1,15 @@
+<p
+        ng-if="$ctrl.commentsArr.length === 0"
+        class="article-comments--empty"
+>No comments yet.</p>
+
+<div class="comments-list">
+    <comment
+            ng-repeat="comment in $ctrl.commentsArr track by $index"
+            data-comment="comment"
+            data-user="$ctrl.user"
+            data-delete-comment="$ctrl.deleteComment"
+    >
+    </comment>
+
+</div>

@@ -1,0 +1,40 @@
+.site-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 20px;
+    font-family: 'GothamSSm-Book', serif;
+    color: #fff;
+    background-color: #404a58;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 26px;
+}
+
+.main-nav__item {
+    padding-right: 10px;
+}
+
+.main-nav__item,
+.account-nav__item {
+    display: inline-block;
+    font-size: 16px;
+}
+
+.account-nav__list {
+    font-size: 0;
+}
+.account-nav__item>a {
+    background-color: #fb6362;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+}

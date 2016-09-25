@@ -1,0 +1,49 @@
+<form
+        class="create-article-form article-form"
+        name = "$ctrl.createArticleForm"
+        novalidate
+        ng-submit = "$ctrl.formSubmit()"
+>
+    <h2 class="new-article-caption"> Submit a new article </h2>
+
+    <div class="input-group">
+
+        <input
+                type="text"
+                name="title"
+                class="input-field"
+                ng-model="$ctrl.data.title"
+                placeholder="Title"
+                required
+        />
+        <p
+                class="input-hint"
+                ng-show="$ctrl.createArticleForm.title.$error.required && !$ctrl.createArticleForm.title.$pristine"
+        >Please enter the title of article.</p>
+    </div>
+
+    <div class="input-group">
+
+        <input
+                type="text"
+                name="link"
+                class="input-field"
+                ng-model="$ctrl.data.link"
+                placeholder="Link"
+                required
+        />
+        <p
+                class="input-hint"
+                ng-show="$ctrl.createArticleForm.link.$error.required && !$ctrl.createArticleForm.link.$pristine"
+        >Please enter the link of article.</p>
+    </div>
+
+    <button
+            type="submit"
+            class="form-button form-submit"
+            ng-class="{lockButton: $ctrl.createArticleForm.$invalid}"
+            ng-disabled="$ctrl.createArticleForm.$invalid"
+    > Submit </button>
+
+    <p ng-show="$ctrl.notification" class="notification">{{$ctrl.notification}}</p>
+</form>

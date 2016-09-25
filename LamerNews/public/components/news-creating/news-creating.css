@@ -1,0 +1,16 @@
+.article-form {
+    /*margin: auto;*/
+    /*max-width: 600px;*/
+    box-sizing: border-box;
+    margin:15px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.new-article-caption {
+    padding-bottom: 20px;
+    text-align: center;
+    font: bold 22px 'GothamSSm-Book', serif;
+    color: #404a58;
+}

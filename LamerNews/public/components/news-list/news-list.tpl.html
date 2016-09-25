@@ -1,0 +1,18 @@
+<div class="news-list">
+
+    <p class="article-list--empty" ng-if="$ctrl.newsArr.length === 0">No artiсles yet</p>
+
+    <news-item
+            ng-repeat="article in $ctrl.newsArr"
+            data-article="article"
+            data-set-article-active-state="$ctrl.setArticleActiveState"
+            data-set-vote = "$ctrl.setVote"
+    >
+    </news-item>
+    <a
+            class="news-list__pagination"
+            ng-if="$ctrl.newsListSet.isNext"
+            ng-click="$ctrl.getNewNewsSet()"
+            class="news-list__pagination"
+    >Load More</a>
+</div>

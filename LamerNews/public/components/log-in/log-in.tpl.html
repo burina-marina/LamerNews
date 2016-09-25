@@ -1,0 +1,50 @@
+<form
+        class="authorize-form form log-in"
+        name = "$ctrl.logIn"
+        novalidate
+        ng-submit = "$ctrl.formSubmit()"
+>
+
+    <div class="input-group">
+
+        <input
+                type="text"
+                name="username"
+                class="input-field"
+                ng-model="$ctrl.data.username"
+                placeholder="Username"
+                required
+        />
+        <p
+                class="input-hint"
+                ng-show="$ctrl.logIn.username.$error.required && !$ctrl.logIn.username.$pristine"
+        >Please enter the login.</p>
+
+    </div>
+
+    <div class="input-group">
+
+        <input
+                type="password"
+                name="password"
+                class="input-field"
+                ng-model="$ctrl.data.password"
+                placeholder="Password"
+                required
+        />
+        <p
+                class="input-hint"
+                ng-show="$ctrl.logIn.password.$error.required && !$ctrl.logIn.password.$pristine"
+        >Please enter the password.</p>
+
+    </div>
+
+    <button
+            type="submit"
+            class="form-button authorize-button form-submit"
+            ng-class="{lockButton: $ctrl.logIn.$invalid}"
+            ng-disabled="$ctrl.logIn.$invalid"
+    > Log In </button>
+
+    <p ng-show="$ctrl.notification" class="notification">{{$ctrl.notification}}</p>
+</form>

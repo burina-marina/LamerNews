@@ -1,0 +1,55 @@
+<form
+        class="article-form update-article-form"
+        name = "$ctrl.updateArticleForm"
+        novalidate
+        ng-submit = "$ctrl.updateArticle($ctrl.data)"
+>
+    <div class="caption-wrapper">
+        <h2 class="updating-article-form__caption article-form__caption"> Update article </h2>
+        <a class="close-button" ng-click="$ctrl.closeForm()">Close</a>
+    </div>
+
+
+    <div class="input-group">
+        <label class='input-field__container'>
+            <span class="input-field__caption">Title:</span>
+            <input
+                    type="text"
+                    name="title"
+                    class="update-article-form__input-field input-field"
+                    ng-model="$ctrl.data.title"
+                    required
+            />
+        </label>
+        <p
+                class="update-article-form__input-hint input-hint"
+                ng-show="$ctrl.updateArticleForm.title.$error.required && !$ctrl.updateArticleForm.title.$pristine"
+        >Please enter the title of article.</p>
+    </div>
+
+    <div class="input-group">
+        <label class='input-field__container'>
+            <span class="input-field__caption">Link:</span>
+            <input
+                    type="text"
+                    name="link"
+                    class="update-article-form__input-field input-field"
+                    ng-model="$ctrl.data.link"
+                    required
+            />
+        </label>
+        <p
+                class="input-hint"
+                ng-show="$ctrl.updateArticleForm.link.$error.required && !$ctrl.updateArticleForm.link.$pristine"
+        >Please enter the link of article.</p>
+    </div>
+
+    <button
+            type="submit"
+            class="update-article-form__form-button form-button form-submit"
+            ng-class="{lockButton: $ctrl.updateArticleForm.$invalid}"
+            ng-disabled="$ctrl.updateArticleForm.$invalid"
+    > Update </button>
+
+    <p ng-show="$ctrl.notification" class="notification">{{$ctrl.notification}}</p>
+</form>

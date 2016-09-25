@@ -1,0 +1,46 @@
+.authorize-container {
+    margin: auto;
+    max-width: 450px;
+}
+.authorize-choose {
+    font-size: 0;
+}
+.authorize-choose__variant {
+    display: inline-block;
+    width: 50%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fff;
+}
+
+.authorize-choose__link {
+    display: block;
+    padding: 10px 0;
+    font: bold 20px "Gotham Book", sans-serif;
+    text-align: center;
+    cursor: pointer;
+}
+
+.activeForm {
+    color: #666;
+    background-color: #fff;
+}
+
+.authorize-form {
+    box-sizing: border-box;
+    width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.authorize-button {
+    width: 100%;
+}
+
+.notification {
+    display: block;
+    padding-top: 20px;
+    text-align: center;
+    font: bold 16px "Gotham Book", sans-serif;
+    color: #a10 ;
+}

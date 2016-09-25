@@ -1,0 +1,57 @@
+@import url(reset.css);
+@import url(fonts.css);
+
+html, body {
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+.basic-wrapper {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.content-wrapper {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex: 1 0 auto;
+}
+
+.content-container>* {
+    width: 100%;
+}
+
+
+footer {
+    flex: 0 0 auto;
+    height: 50px;
+    margin-top: 10px;
+    background-color: #404a58;
+}
+
+
+
+
+
+
+
+/*common */
+
+
+button.lockButton {
+    background-color: #5d6b7f;
+    cursor: auto;
+}

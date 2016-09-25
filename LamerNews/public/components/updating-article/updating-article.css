@@ -1,0 +1,79 @@
+/*just to updating*/
+.updating-article-form__container {
+    width: 100%;
+}
+
+form.update-article-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.updating-article-form__caption {
+    flex: 1 0 auto;
+}
+
+.caption-wrapper {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    
+}
+
+.close-button {
+    display: block;
+    cursor: pointer;
+    font: bold 14px 'GothamSSm-Book', serif;
+    color: #999;
+}
+
+.update-article-form__input-field {
+    padding: 10px 20px;
+    font: bold 18px "Gotham Book", sans-serif;
+
+}
+.form-button__list {
+    align-self: flex-end;
+}
+.form-button__item {
+    display: inline-block;
+ }
+
+.update-article-form__form-button {
+    margin-top: 0px;
+    width: 300px;
+    padding: 10px;
+}
+
+/*common*/
+.article-form__caption {
+    text-align: center;
+    color: #404a58;
+    font: bold 22px "Gotham Book", sans-serif;
+
+}
+
+.article-form {
+    box-sizing: border-box;
+    margin:15px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.input-field__container {
+    font: bold 18px 'GothamSSm-Book', serif;
+    display: flex;
+    align-items: center;
+}
+
+.input-field__caption {
+    margin-right: 10px;
+}
+.form-close {
+    background-color: #999;
+    width: auto;
+}
