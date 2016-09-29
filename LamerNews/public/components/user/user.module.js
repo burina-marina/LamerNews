@@ -22,7 +22,7 @@ angular.module('user', [])
 
     .config(function($stateProvider, $urlRouterProvider) {
 
-        // $urlRouterProvider.when('/user/:username', '/user/:username/posts');
+        $urlRouterProvider.when('/user/:username', '/user/:username/posts');
 
         $stateProvider
             .state('user', {
@@ -30,7 +30,6 @@ angular.module('user', [])
                 url: '/user/:username',
                 resolve: {
                     serverUserInfo: (requestsService, $stateParams, urlConfig) => {
-                        debugger
                         let url = urlConfig.getUserUrl($stateParams.username)
                         return requestsService.fetchData(url);
                     }

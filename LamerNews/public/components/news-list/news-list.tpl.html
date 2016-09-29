@@ -3,11 +3,12 @@
     <p class="article-list--empty" ng-if="$ctrl.newsArr.length === 0">No artiсles yet</p>
 
     <news-item
+    
             ng-repeat="article in $ctrl.newsArr"
+            ng-if="article.articleId"
             data-article="article"
             data-set-article-active-state="$ctrl.setArticleActiveState"
-            data-set-vote = "$ctrl.setVote"
-    >
+    >  
     </news-item>
     <a
             class="news-list__pagination"

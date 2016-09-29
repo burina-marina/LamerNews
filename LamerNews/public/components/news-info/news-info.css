@@ -13,7 +13,7 @@
     margin-right: 5px;
 }
 
-.article-info__image{
+.article-info__image {
     width: 80px;
     height: 80px;
     margin: auto;
@@ -37,24 +37,14 @@
     justify-content: space-between;
 }
 
-.article-activity__list{
-    font-size: 0;
-}
-.article-activity__item {
-    display: inline-block;
-    padding: 0 5px;
-}
-.article-activity__item:first-child {
-    border-right: 1px solid #999;
-}
-.article-activity__item a {
+.article__control-button {
     display: block;
     cursor: pointer;
     font: bold 14px 'GothamSSm-Book', serif;
     color: #999;
 }
 
-.article-activity__item a:hover {
+.article__control-button:hover {
     color: #fb6362;
 }
 

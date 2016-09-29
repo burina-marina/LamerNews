@@ -2,6 +2,7 @@ class NewsDetailsController {
 
     constructor($state, toastr, $scope, requestsService, urlConfig, userIdentification) {
         // commentsArr
+
         this.$state = $state;
         this.toastr = toastr;
         this.$scope = $scope;
@@ -15,7 +16,7 @@ class NewsDetailsController {
 
     closeDetails() {
         this.article.isActive = false;
-        this.$state.go('newsBlock', {type: this.$state.params.type})
+        this.$state.go('newsBlock', { type: this.$state.params.type })
     }
 
     addComment(commentData) {
@@ -34,7 +35,7 @@ class NewsDetailsController {
                     isAdmin: true
                 });
 
-                that.article.commentCount +=1;
+                that.article.commentCount += 1;
                 commentData.comment_body = '';
                 that.isEmptyCommentsArr = that.commentsArr.length == 0;
                 that.$scope.$digest();

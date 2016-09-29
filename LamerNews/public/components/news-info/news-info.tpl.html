@@ -4,45 +4,28 @@
         <img class="article-info__image" src="{{$ctrl.article.authorPhoto}}" alt="userPhoto">
     </div>
 
-    <updating-article
-            data-article = "$ctrl.article"
-            data-close-form = "$ctrl.closeShowUpdateArticleForm()"
-            data-update-article = "$ctrl.updateArticle"
-            class="updating-article-form__container"
-            ng-if="$ctrl.isShowUpdateArticleForm"
-    ></updating-article>
+    <updating-article data-article="$ctrl.article" data-close-form="$ctrl.closeShowUpdateArticleForm()" data-update-article="$ctrl.updateArticle" class="updating-article-form__container" ng-if="$ctrl.isShowUpdateArticleForm"></updating-article>
 
     <div ng-if="!$ctrl.isShowUpdateArticleForm" class="article-info__details-container">
         <div class="article__title-container">
             <h2 class="article__title">
                 <a href='#'>{{$ctrl.article.title}}</a>
             </h2>
-            <ul class="article-activity__list"  ng-if="$ctrl.isShowControlPanel">
-                <li class="article-activity__item">
-                    <a ng-click="$ctrl.isShowUpdateArticleForm = true">update</a>
-                </li>
-                <li class="article-activity__item">
-                    <a ng-click="$ctrl.deleteArticle()">delete</a>
-                </li>
-            <ul>
+            
+            <a
+                    class="article__control-button" 
+                    ng-if="$ctrl.isShowControlPanel" 
+                    ng-click="$ctrl.newsBlockService.deleteArticle($ctrl.article)"
+            >delete</a>
+            
         </div>
 
         <div class="article-info__details">
             <form class="article__rating">
-                <button
-                        ng-click="$ctrl.setVote($ctrl.article, 'up')"
-                        ng-class="{lockButton: !$ctrl.article.isVoted}"
-                        ng-disabled="!$ctrl.article.isVoted"
-                        class="rating-button rating-up"
-                >
+                <button ng-click="$ctrl.newsBlockService.setVote($ctrl.article, 'up')" ng-class="{lockButton: !$ctrl.article.isVoted}" ng-disabled="!$ctrl.article.isVoted" class="rating-button rating-up">
                     <span class="rating__arrow rating-up__arrow"></span>
                 </button>
-                <button
-                        ng-click="$ctrl.setVote($ctrl.article, 'down')"
-                        ng-class="{lockButton: !$ctrl.article.isVoted}"
-                        ng-disabled="!$ctrl.article.isVoted"
-                        class="rating-button rating-down"
-                >
+                <button ng-click="$ctrl.newsBlockService.setVote($ctrl.article, 'down')" ng-class="{lockButton: !$ctrl.article.isVoted}" ng-disabled="!$ctrl.article.isVoted" class="rating-button rating-down">
                     <span class="rating__arrow rating-down__arrow"></span>
                 </button>
             </form>

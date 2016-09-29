@@ -29,6 +29,7 @@ articleRouter.use('/admin', privateArticleRouter);
 
 privateArticleRouter.use(authenticationService.checkAuthorization);
 privateArticleRouter.route('/article/:id')
+    .get(articleCtrl.gitArticleTitle)
     .put(articleCtrl.updateArticle)
     .delete(articleCtrl.deleteArticle);
 

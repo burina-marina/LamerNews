@@ -18,7 +18,6 @@ class UserInfoController {
     }
 
     changePassword() {
-        debugger
         var that = this;
         let url = this.urlConfig.getUserPasswordUrl(this.serverUserInfo.user.username);
         let response = this.requestsService.putData(url, this.password);

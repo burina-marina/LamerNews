@@ -2,24 +2,20 @@
 
     <user-info data-server-user-info="$ctrl.serverUserInfo"></user-info>
 
-    <!-- <section class="user-activity-container">
+    <section class="user-activity-container">
 
         <ul class="user-activity-choose">
-            <li
-                    ng-class="{activeInfo: $ctrl.$state.current.name == 'user.posts'}"
-                    class="user-activity-choose__variant">
+            <li ng-class="{activeInfo: $ctrl.$state.current.name == 'user.posts'}" class="user-activity-choose__variant">
                 <a ui-sref=".posts({page: +1})" class="user-activity-choose__link">Posts</a>
             </li>
-            <li
-                    ng-class="{activeInfo: $ctrl.$state.current.name == 'user.comments'}"
-                    class="user-activity-choose__variant">
+            <li ng-class="{activeInfo: $ctrl.$state.current.name == 'user.comments'}" class="user-activity-choose__variant">
                 <a ui-sref=".comments" class="user-activity-choose__link">Comments</a>
             </li>
         </ul>
 
         <div ui-view class="user-activity-contante"></div>
 
-    </section> -->
+    </section>
 
 
 </section>

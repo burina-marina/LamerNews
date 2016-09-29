@@ -16,6 +16,9 @@ class UrlConfigService {
         }
     }
 
+    getArticleTitleUrl(id) {
+        return `http://localhost:3001/app/admin/article/${id}`;
+    }
 
     getUpdateArticleUrl(id) {
         return `http://localhost:3001/app/admin/article/${id}`;

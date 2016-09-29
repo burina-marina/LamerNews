@@ -1,4 +1,5 @@
 /*just to updating*/
+
 .updating-article-form__container {
     width: 100%;
 }
@@ -20,7 +21,6 @@ form.update-article-form {
     display: flex;
     align-items: center;
     padding-bottom: 10px;
-    
 }
 
 .close-button {
@@ -33,32 +33,42 @@ form.update-article-form {
 .update-article-form__input-field {
     padding: 10px 20px;
     font: bold 18px "Gotham Book", sans-serif;
-
 }
+
 .form-button__list {
     align-self: flex-end;
 }
+
 .form-button__item {
     display: inline-block;
- }
+}
 
-.update-article-form__form-button {
+.control-panel__button {
     margin-top: 0px;
     width: 300px;
     padding: 10px;
+    display: block;
+    box-sizing: border-box;
 }
 
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+
 /*common*/
+
 .article-form__caption {
     text-align: center;
     color: #404a58;
     font: bold 22px "Gotham Book", sans-serif;
-
 }
 
 .article-form {
     box-sizing: border-box;
-    margin:15px;
+    margin: 15px;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
@@ -73,6 +83,7 @@ form.update-article-form {
 .input-field__caption {
     margin-right: 10px;
 }
+
 .form-close {
     background-color: #999;
     width: auto;

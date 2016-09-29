@@ -2,7 +2,7 @@
         class="article-form update-article-form"
         name = "$ctrl.updateArticleForm"
         novalidate
-        ng-submit = "$ctrl.updateArticle($ctrl.data)"
+        ng-submit = "$ctrl.updateArticle()"
 >
     <div class="caption-wrapper">
         <h2 class="updating-article-form__caption article-form__caption"> Update article </h2>
@@ -44,12 +44,22 @@
         >Please enter the link of article.</p>
     </div>
 
-    <button
-            type="submit"
-            class="update-article-form__form-button form-button form-submit"
-            ng-class="{lockButton: $ctrl.updateArticleForm.$invalid}"
-            ng-disabled="$ctrl.updateArticleForm.$invalid"
-    > Update </button>
+    <ul class="control-panel">
+        <li class="control-panel__item">
+            <button
+                    type="submit"
+                    class="control-panel__button form-button form-submit"
+                    ng-class="{lockButton: $ctrl.updateArticleForm.$invalid}"
+                    ng-disabled="$ctrl.updateArticleForm.$invalid"
+            > Update </button>
+        </li>
+        <li class="control-panel__item">
+            <a
+                    class="control-panel__button form-button"
+                    ng-click="$ctrl.deleteArticle()"
+            > Delete </a>
+        </li>
+    </ul>
 
     <p ng-show="$ctrl.notification" class="notification">{{$ctrl.notification}}</p>
 </form>

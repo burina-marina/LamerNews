@@ -3,13 +3,13 @@ var gravatar = require('gravatar');
 
 
 var articleService = require('./../services/article.service');
-var userService    = require('./../services/user.service.js');
-var notification   = require('./../services/notification.service');
+var userService = require('./../services/user.service.js');
+var notification = require('./../services/notification.service');
 
 
-var Article        = require('./../models/article.model');
-var User        = require('./../models/user.model');
-var Comment        = require('./../models/comment.model');
+var Article = require('./../models/article.model');
+var User = require('./../models/user.model');
+var Comment = require('./../models/comment.model');
 
 
 
@@ -20,15 +20,28 @@ var articleCtrl = {
         console.log(req.params);
         Article
             .find({})
-            .sort({posted_date: -1})
+            .sort({ posted_date: -1 })
             .exec((err, arr) => articleService.getPartArticle(err, arr, req, res));
     },
 
     getTopArticles: function(req, res) {
         Article
             .find({})
-            .sort({rating: -1})
+            .sort({ rating: -1 })
             .exec((err, arr) => articleService.getPartArticle(err, arr, req, res));
+    },
+
+    gitArticleTitle: function(req, res) {
+        let articleId = req.params.id;
+        Article.findById(req.params.id)
+            .then((rez) => {
+                var article = {
+                    articleId: rez._id,
+                    link: rez.link,
+                    title: rez.title,
+                }
+                res.json(article)
+            });
     },
 
     getArticle: function(req, res) {
@@ -50,7 +63,7 @@ var articleCtrl = {
                     userService.findUserById(req, res, article.author, (user) => {
                         article.isAdmin = req.userId == article.author;
                         article.author = user.username;
-                        article.authorPhoto = gravatar.url(user.email, {s: '60', r: 'x', d: 'retro'}, true);
+                        article.authorPhoto = gravatar.url(user.email, { s: '60', r: 'x', d: 'retro' }, true);
                         resolve();
                     });
                 })
@@ -60,12 +73,12 @@ var articleCtrl = {
             })
     },
 
-    getArticleComments: function (req, res) {
+    getArticleComments: function(req, res) {
         let articleId = req.params.id;
         Article.findById(articleId).then((article) => {
             Comment
-                .find({article: articleId})
-                .sort({posted_date: -1})
+                .find({ article: articleId })
+                .sort({ posted_date: -1 })
                 .exec((err, arr) => {
                     var commentsArr = [];
                     let promiseArray = [];
@@ -82,7 +95,7 @@ var articleCtrl = {
                             new Promise((resolve) => {
                                 userService.findUserById(req, res, commentsArr[i].authorId, (user) => {
                                     commentsArr[i].authorName = user.username;
-                                    commentsArr[i].authorPhoto = gravatar.url(user.email, {s: '60', r: 'x', d: 'retro'}, true);
+                                    commentsArr[i].authorPhoto = gravatar.url(user.email, { s: '60', r: 'x', d: 'retro' }, true);
                                     commentsArr[i].isAdmin = req.userId == commentsArr[i].authorId || req.userId == article.author;
                                     resolve();
                                 });
@@ -90,11 +103,11 @@ var articleCtrl = {
                         )
                     }
 
-                Promise.all(promiseArray)
-                    .then(() => {
-                        res.json(commentsArr)
-                    })
-            });
+                    Promise.all(promiseArray)
+                        .then(() => {
+                            res.json(commentsArr)
+                        })
+                });
         })
     },
 
@@ -112,12 +125,12 @@ var articleCtrl = {
                         user.articles_count += 1;
                         user.save()
                             .then(() => {
-                                res.status(200).send({message: 'Article saved successful!'});
+                                res.status(200).send({ message: 'Article saved successful!' });
                             })
                     })
 
             }).
-            catch(() => notification.serverErr(res))
+        catch(() => notification.serverErr(res))
     },
 
     updateArticle: function(req, res) {
@@ -127,7 +140,7 @@ var articleCtrl = {
                     article[key] = req.body[key];
                 }
                 articleService.saveArticle(article, res, function() {
-                    res.status(200).send({message: 'Article updated successful!'});
+                    res.status(200).send({ message: 'Article updated successful!' });
                 });
             } else {
                 notification.accessErr(res);
@@ -139,10 +152,10 @@ var articleCtrl = {
         Article.findByIdAndRemove(req.params.id)
             .then(() => {
                 Comment
-                    .find({article: req.params.id})
+                    .find({ article: req.params.id })
                     .then((arr) => {
                         for (let comment of arr) {
-                            User.findByIdAndUpdate(comment.author, { $inc: {comments_count: -1} })
+                            User.findByIdAndUpdate(comment.author, { $inc: { comments_count: -1 } })
                                 .then(() => {
                                     Comment.findByIdAndRemove(comment._id)
                                         .then(() => {})
@@ -150,7 +163,7 @@ var articleCtrl = {
                         }
                     })
             })
-            .then(() => {res.status(200).send({message: 'Article was deleted successful!'}) })
+            .then(() => { res.status(200).send({ message: 'Article was deleted successful!' }) })
             .catch(() => notification.serverErr(res))
     },
 
@@ -161,11 +174,11 @@ var articleCtrl = {
 
                 article.votes.push(req.userId);
                 article.save()
-                    .then(() => res.status(200).send( { status: '200', message: "вашголос учтен" } ))
+                    .then(() => res.status(200).send({ status: '200', message: "вашголос учтен" }))
                     .catch(() => notification.serverErr(res))
 
             } else {
-                res.status(409).send({status: '409', message: "вы уже голосовали"});
+                res.status(409).send({ status: '409', message: "вы уже голосовали" });
             }
         });
     }

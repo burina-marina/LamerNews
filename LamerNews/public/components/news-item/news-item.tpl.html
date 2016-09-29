@@ -1,19 +1,17 @@
 <article class="news-article" ng-class="{isActive: $ctrl.article.isActive}">
     <form class="article__rating">
-        <button
-                ng-click="$ctrl.setVote($ctrl.article, 'up')"
-                ng-class="{lockButton: !$ctrl.article.isVoted}"
-                ng-disabled="!$ctrl.article.isVoted"
-                class="rating-button rating-up"
-        >
+        <button 
+                ng-click="$ctrl.newsBlockService.setVote($ctrl.article, 'up')" 
+                ng-class="{lockButton: !$ctrl.article.isVoted}" 
+                ng-disabled="!$ctrl.article.isVoted" 
+                class="rating-button rating-up">
             <span class="rating__arrow rating-up__arrow"></span>
         </button>
-        <button
-                ng-click="$ctrl.setVote('down')"
-                ng-class="{lockButton: !$ctrl.article.isVoted}"
-                ng-disabled="!$ctrl.article.isVoted"
-                class="rating-button rating-down"
-        >
+        <button 
+                ng-click="$ctrl.newsBlockService.setVote('down')" 
+                ng-class="{lockButton: !$ctrl.article.isVoted}" 
+                ng-disabled="!$ctrl.article.isVoted" 
+                class="rating-button rating-down">
             <span class="rating__arrow rating-down__arrow"></span>
         </button>
     </form>
@@ -33,8 +31,7 @@
             <span class="text">{{$ctrl.article.postedDate}}</span>
             <span class="text">{{$ctrl.article.commentCount}}</span>
             <span class="text">comments</span>
-            <span class="text"
-                    ng-if="$ctrl.$state.current.name !== 'user.posts'">
+            <span class="text" ng-if="$ctrl.$state.current.name !== 'user.posts'">
                 click
                 <a
                         ng-click="$ctrl.showDetails()"
@@ -47,7 +44,10 @@
         </p>
 
     </div>
-    <a ui-sref="article({id: $ctrl.article.articleId})" ng-if="$ctrl.$state.current.name == 'user.posts'" class="editing-news-article">
-
+    <a
+            ng-if="$ctrl.$state.current.name == 'user.posts'"
+            ui-sref="article({id: $ctrl.article.articleId})" 
+            class="news-article__control-button">
     </a>
+
 </article>
