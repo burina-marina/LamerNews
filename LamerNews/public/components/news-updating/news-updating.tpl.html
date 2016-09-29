@@ -2,7 +2,7 @@
         class="article-form update-article-form"
         name = "$ctrl.updateArticleForm"
         novalidate
-        ng-submit = "$ctrl.updateArticle()"
+        ng-submit = "$ctrl.newsBlockService.updateArticle($ctrl.article, $ctrl.data, $ctrl.prevState)"
 >
     <div class="caption-wrapper">
         <h2 class="updating-article-form__caption article-form__caption"> Update article </h2>
@@ -56,7 +56,7 @@
         <li class="control-panel__item">
             <a
                     class="control-panel__button form-button"
-                    ng-click="$ctrl.deleteArticle()"
+                    ng-click="$ctrl.newsBlockService.deleteArticle($ctrl.article, $ctrl.prevState);"
             > Delete </a>
         </li>
     </ul>

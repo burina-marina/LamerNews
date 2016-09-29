@@ -11,13 +11,11 @@
             <h2 class="article__title">
                 <a href='#'>{{$ctrl.article.title}}</a>
             </h2>
-            
             <a
                     class="article__control-button" 
                     ng-if="$ctrl.isShowControlPanel" 
-                    ng-click="$ctrl.newsBlockService.deleteArticle($ctrl.article)"
-            >delete</a>
-            
+                    ui-sref="article({id: $ctrl.article.articleId})"
+            >update</a>
         </div>
 
         <div class="article-info__details">

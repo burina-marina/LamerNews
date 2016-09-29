@@ -2,7 +2,6 @@ class NewsItemController {
 
     constructor(toastr, $scope, handlerService, $state, newsBlockService) {
         // article;
-        // setVote
         this.newsBlockService = newsBlockService;
         this.$scope = $scope;
         this.$state = $state;

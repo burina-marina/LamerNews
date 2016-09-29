@@ -1,32 +1,21 @@
 class NewsUpdatingController {
 
-    constructor($state, newsBlockService) {
-        this.$state = $state;
+    constructor(newsBlockService) {
         this.newsBlockService = newsBlockService;
         this.data = {
             title: this.article.title,
             link: this.article.link
         };
     }
-
-    closeForm() {
-        if (this.state.url) {
-            this.$state.go(this.state.url, this.state.param);
-        } else {
-            this.$state.go("newsBlock", { type: 'top' });
+    $onInit() {
+        if (!this.prevState.url) {
+            this.prevState.url = 'newsBlock';
+            this.prevState.param = {
+                type: 'top'
+            }
         }
     }
-
-    updateArticle() {
-        this.newsBlockService.updateArticle(this.article, this.data);
-        this.closeForm();
-    }
-
-    deleteArticle() {
-        this.newsBlockService.deleteArticle(this.article);
-        this.closeForm();
-    }
 }
-NewsUpdatingController.$inject = ['$state', 'newsBlockService'];
+NewsUpdatingController.$inject = ['newsBlockService'];
 
 export default NewsUpdatingController;

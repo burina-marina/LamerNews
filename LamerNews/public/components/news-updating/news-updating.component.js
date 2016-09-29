@@ -7,7 +7,7 @@ class NewsUpdatingComponent {
         this.templateUrl = 'components/news-updating/news-updating.tpl.html';
         this.controller = NewsUpdatingController;
         this.bindings = {
-            state: '<state',
+            prevState: '<state',
             article: '<article'
         };
     }

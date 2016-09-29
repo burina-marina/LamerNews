@@ -1,4 +1,3 @@
-
 class CommentController {
 
     constructor(handlerService) {

@@ -4,7 +4,6 @@ class NewsBlockService {
         this.$state = $state;
         this.toastr = toastr;
         this.urlConfig = urlConfig;
-        // this.isNewsBlockState = this.$state.current.name === 'blockState'; 
         this.requestsService = requestsService;
 
         this.preview = {
@@ -25,19 +24,17 @@ class NewsBlockService {
         this.preview.isActive = false;
     }
 
-    deleteArticle(article) {
+    deleteArticle(article, prevState) {
         let that = this;
         let url = this.urlConfig.getDeleteArticleUrl(article.articleId)
         let response = this.requestsService.deleteData(url);
         response
             .then((res) => {
                 that.toastr.success('Article is deleted!');
-                if (that.$state.current.name !== 'article') {
-                    let state = that.$state.current.name.split('.')[0];
-                    for (let key in article) {
-                        delete article[key];
-                    }
-                    that.$state.go(state);
+                if (prevState.url.split('.')[0] === 'newsBlock') {
+                    that.$state.go('newsBlock', prevState.param);
+                } else {
+                    that.$state.go(prevState.url, prevState.param);
                 }
             })
             .catch(() => {
@@ -45,15 +42,22 @@ class NewsBlockService {
             })
     }
 
-    updateArticle(article, data) {
+    updateArticle(article, data, prevState) {
         let that = this;
         let url = this.urlConfig.getUpdateArticleUrl(article.articleId)
         let response = this.requestsService.putData(url, data);
         response
             .then((res) => {
                 that.toastr.success('You article is updated');
-                article.title = data.title;
-                article.link = data.link;
+                if (prevState.url === 'newsBlock.details') {
+                    that.preview.article.title = data.title;
+                    that.preview.article.link = data.link;
+                } else {
+                    article.title = data.title;
+                    article.link = data.link;
+                }
+                that.$state.go(prevState.url, prevState.param);
+
             })
             .catch((data) => that.toastr.error('Sorry. Server Error'))
     }
