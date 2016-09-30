@@ -4,18 +4,32 @@
         <img class="article-info__image" src="{{$ctrl.article.authorPhoto}}" alt="userPhoto">
     </div>
 
-    <updating-article data-article="$ctrl.article" data-close-form="$ctrl.closeShowUpdateArticleForm()" data-update-article="$ctrl.updateArticle" class="updating-article-form__container" ng-if="$ctrl.isShowUpdateArticleForm"></updating-article>
+    <news-updating 
+            data-article="$ctrl.article" 
+            data-is-update-state="$ctrl.isUpdateState"
+            class="updating-article-form__container" 
+            ng-if="$ctrl.isUpdateState"
+    ></news-updating>
 
-    <div ng-if="!$ctrl.isShowUpdateArticleForm" class="article-info__details-container">
+    <div ng-if="!$ctrl.isUpdateState" class="article-info__details-container">
         <div class="article__title-container">
             <h2 class="article__title">
                 <a href='#'>{{$ctrl.article.title}}</a>
             </h2>
-            <a
+
+            <ul class="article-activity__list" ng-if="$ctrl.isShowControlPanel">
+                <li class="article-activity__item">
+                    <a ng-click="$ctrl.isUpdateState = true">update</a>
+                </li>
+                <li class="article-activity__item">
+                    <a ng-click="$ctrl.newsBlockService.deleteArticle($ctrl.article);">delete</a>
+                </li>
+            <ul>
+                    <!--<a
                     class="article__control-button" 
                     ng-if="$ctrl.isShowControlPanel" 
                     ui-sref="article({id: $ctrl.article.articleId})"
-            >update</a>
+            >update</a>-->
         </div>
 
         <div class="article-info__details">

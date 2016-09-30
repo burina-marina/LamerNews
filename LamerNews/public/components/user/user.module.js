@@ -17,7 +17,6 @@ angular.module('user', [])
 .config(function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.when('/user/:username', '/user/:username/posts');
-
     $stateProvider
         .state('user', {
             template: '<user data-server-user-info="$resolve.serverUserInfo"></user>',
@@ -37,9 +36,9 @@ angular.module('user', [])
 
     .state('user.comments', {
         template: `<comments-list
-                    data-comments-arr="$resolve.serverData.commentsArr"
-                    data-binding-place="$resolve.userInfo"
-                ></comments-list>`,
+                            data-comments-arr="$resolve.serverData.commentsArr"
+                            data-binding-place="$resolve.userInfo"
+                        ></comments-list>`,
         url: '/comments',
         resolve: {
             serverData: (requestsService, $stateParams, urlConfig, $state) => {

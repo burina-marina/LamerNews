@@ -11,7 +11,7 @@ angular.module('authorize', [])
     .component('checkIn', new CheckInComponent())
 
     .config(function($stateProvider, $urlRouterProvider) {
-
+    $urlRouterProvider.when('', '/news/top');
     $stateProvider
         .state('authorize', {
             template: '<authorize></authorize>',

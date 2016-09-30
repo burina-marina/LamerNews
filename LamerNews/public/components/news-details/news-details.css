@@ -1,6 +1,9 @@
-.details-article__container {
+    .details-article__container {
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
+
 .article-comments__container {
     margin-top: 20px;
     background-color: #fff;
@@ -48,6 +51,7 @@
     background-color: #5c6a7e;
     transform: rotate(180deg);
 }
+
 .details-article__collapse-icon:before {
     content: '';
     display: block;
@@ -58,6 +62,23 @@
     border: 10px solid transparent;
     border-right-color: #fff;
 }
+
 .showDelails {
     display: block;
+}
+
+.details-article__caption {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.details-article__close-button:after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    background-image: url(/dist/f21b4d278c69f198d6264b7ff45ad936.png);
+    background-position: 0 0;
 }

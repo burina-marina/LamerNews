@@ -3,9 +3,10 @@ class NewsInfoController {
     constructor($state, newsBlockService) {
         this.$state = $state;
         this.newsBlockService = newsBlockService;
-        debugger
-        this.isShowControlPanel = this.article.isAdmin && (this.$state.current.name === 'newsBlock.details');
+        this.isShowControlPanel = this.article.isAdmin && (this.$state.current.name === 'article');
+        this.isUpdateState = false;
     }
+
 
 }
 

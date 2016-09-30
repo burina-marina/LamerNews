@@ -2,7 +2,6 @@ class NewsDetailsController {
 
     constructor($state, toastr, $scope, requestsService, urlConfig, userIdentification) {
         // commentsArr
-        debugger
         this.$state = $state;
         this.toastr = toastr;
         this.$scope = $scope;

@@ -150,17 +150,21 @@ var articleCtrl = {
 
     deleteArticle: function(req, res) {
         Article.findByIdAndRemove(req.params.id)
-            .then(() => {
-                Comment
-                    .find({ article: req.params.id })
-                    .then((arr) => {
-                        for (let comment of arr) {
-                            User.findByIdAndUpdate(comment.author, { $inc: { comments_count: -1 } })
-                                .then(() => {
-                                    Comment.findByIdAndRemove(comment._id)
-                                        .then(() => {})
-                                })
-                        }
+            .then((article) => {
+                console.log(article)
+                User.findByIdAndUpdate(article.author, { $inc: { articles_count: -1 } })
+                    .then(() => {
+                        Comment
+                            .find({ article: req.params.id })
+                            .then((arr) => {
+                                for (let comment of arr) {
+                                    User.findByIdAndUpdate(comment.author, { $inc: { comments_count: -1 } })
+                                        .then(() => {
+                                            Comment.findByIdAndRemove(comment._id)
+                                                .then(() => {})
+                                        })
+                                }
+                            })
                     })
             })
             .then(() => { res.status(200).send({ message: 'Article was deleted successful!' }) })

@@ -11,5 +11,10 @@
             data-delete-comment="$ctrl.deleteComment"
     >
     </comment>
-
+    <a
+            class="news-list__pagination"
+            ng-if="$ctrl.commentsListSet.isNext"
+            ng-click="$ctrl.getNewNewsSet()"
+            class="news-list__pagination"
+    >Load More</a>
 </div>

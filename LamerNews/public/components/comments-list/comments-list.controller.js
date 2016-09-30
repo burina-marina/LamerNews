@@ -34,6 +34,30 @@ class CommentsListController {
                 that.toastr.error("Server Err!!")
             })
     }
+
+    getNewCommentsSet() {
+        let that = this;
+
+        let url = this.urlConfig.getNewsListUrl(this.newsListSet.state, this.newsListSet.current + 1);
+        let promiseResponse = this.requestsService.fetchData(url);
+
+        promiseResponse.then((serverData) => {
+            // serverData = {arrLength, articleArr}
+            that.newsListSet.current += 1;
+            that.newsListSet.isNext = that.newsListSet.current * 10 < serverData.arrLength;
+
+            for (let article of serverData.articlesArr) {
+                if (that.newsBlockService.preview.article.articleId === article.articleId) {
+                    that.newsArr.push(that.newsBlockService.preview.article);
+                } else {
+                    that.newsArr.push(article);
+                }
+            }
+            that.$scope.$digest();
+        })
+    }
+
+
 }
 
 CommentsListController.$inject = ['toastr', '$scope', '$state', 'requestsService', 'urlConfig'];

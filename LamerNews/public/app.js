@@ -3,13 +3,13 @@ import './components/common/styles/style.css';
 import './components/common/styles/form-style.css';
 import './components/common/styles/angular-toastr.min.css';
 
-import SiteHeaderComponent   from './components/site-header/site-header.component';
+import SiteHeaderComponent from './components/site-header/site-header.component';
 
 import UserIdentificationService from './components/common/services/user-identification.service';
-import UrlConfigService          from './components/common/services/url-config.service';
-import RequestsService           from './components/common/services/requests.service';
-import HandlerService            from './components/common/services/handler.service';
-import AuthorizeService          from './components/common/services/authorize.service';
+import UrlConfigService from './components/common/services/url-config.service';
+import RequestsService from './components/common/services/requests.service';
+import HandlerService from './components/common/services/handler.service';
+import AuthorizeService from './components/common/services/authorize.service';
 
 import './components/news-block/news.module';
 import './components/authorize/authorize.module';
@@ -31,7 +31,7 @@ lamernews.service('authorizeService', AuthorizeService);
 
 
 
-lamernews.config(function(toastrConfig) {
+lamernews.config(function(toastrConfig, $urlRouterProvider) {
     angular.extend(toastrConfig, {
         autoDismiss: false,
         containerId: 'toast-container',
@@ -42,4 +42,5 @@ lamernews.config(function(toastrConfig) {
         preventOpenDuplicates: false,
         target: 'body'
     });
+
 });

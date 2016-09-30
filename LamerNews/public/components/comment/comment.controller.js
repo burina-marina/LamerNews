@@ -1,11 +1,12 @@
 class CommentController {
 
-    constructor(handlerService) {
+    constructor(handlerService, $state) {
         this.deleteComment = this.deleteComment();
         this.handlerService = handlerService;
+        this.$state = $state;
     }
 
 }
-CommentController.$inject = ['handlerService'];
+CommentController.$inject = ['handlerService', '$state'];
 
 export default CommentController;

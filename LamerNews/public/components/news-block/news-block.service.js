@@ -20,8 +20,13 @@ class NewsBlockService {
         this.$state.go('newsBlock.details', { id: article.articleId })
     }
 
+    refresh() {
+        this.preview.article = {};
+    }
+
     hideDetails() {
         this.preview.isActive = false;
+        this.preview.article = {};
     }
 
     deleteArticle(article, prevState) {
@@ -31,33 +36,22 @@ class NewsBlockService {
         response
             .then((res) => {
                 that.toastr.success('Article is deleted!');
-                if (prevState.url.split('.')[0] === 'newsBlock') {
-                    that.$state.go('newsBlock', prevState.param);
-                } else {
-                    that.$state.go(prevState.url, prevState.param);
-                }
+                that.$state.go('user', {username: article.author});
             })
             .catch(() => {
                 that.toastr.error('Server Err');
             })
     }
 
-    updateArticle(article, data, prevState) {
+    updateArticle(article, data) {
         let that = this;
         let url = this.urlConfig.getUpdateArticleUrl(article.articleId)
         let response = this.requestsService.putData(url, data);
         response
             .then((res) => {
                 that.toastr.success('You article is updated');
-                if (prevState.url === 'newsBlock.details') {
-                    that.preview.article.title = data.title;
-                    that.preview.article.link = data.link;
-                } else {
-                    article.title = data.title;
-                    article.link = data.link;
-                }
-                that.$state.go(prevState.url, prevState.param);
-
+                article.title = data.title;
+                article.link = data.link;
             })
             .catch((data) => that.toastr.error('Sorry. Server Error'))
     }

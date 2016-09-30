@@ -2,11 +2,11 @@
         class="article-form update-article-form"
         name = "$ctrl.updateArticleForm"
         novalidate
-        ng-submit = "$ctrl.newsBlockService.updateArticle($ctrl.article, $ctrl.data, $ctrl.prevState)"
+        ng-submit = "$ctrl.newsBlockService.updateArticle($ctrl.article, $ctrl.data); $ctrl.isUpdateState = false"
 >
     <div class="caption-wrapper">
         <h2 class="updating-article-form__caption article-form__caption"> Update article </h2>
-        <a class="close-button" ng-click="$ctrl.closeForm()">Close</a>
+        <a class="close-button" ng-click="$ctrl.isUpdateState = false">Close</a>
     </div>
 
 
@@ -53,13 +53,8 @@
                     ng-disabled="$ctrl.updateArticleForm.$invalid"
             > Update </button>
         </li>
-        <li class="control-panel__item">
-            <a
-                    class="control-panel__button form-button"
-                    ng-click="$ctrl.newsBlockService.deleteArticle($ctrl.article, $ctrl.prevState);"
-            > Delete </a>
-        </li>
     </ul>
 
     <p ng-show="$ctrl.notification" class="notification">{{$ctrl.notification}}</p>
+    <news>
 </form>

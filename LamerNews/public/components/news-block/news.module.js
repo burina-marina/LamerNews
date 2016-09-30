@@ -98,24 +98,26 @@ angular.module('news', [])
             template: '<news-creating></news-creating>',
             url: '/submit'
         })
-    .state('article', {
-        template: `<news-updating
-                    data-state="$resolve.state"
-                    data-article="$resolve.article"
-                ></news-updating>`,
-        url: '/article/:id',
-        resolve: {
-            state: ($state) => {
-                return { url: $state.current.name, param: $state.params }
-            },
-            article: (requestsService, urlConfig, $stateParams) => {
-                let url = urlConfig.getArticleTitleUrl($stateParams.id)
-                let promise = requestsService.fetchData(url);
-                return promise.then((article) => {
-                    return article;
-                })
+        .state('article', {
+            template: `<news-details
+                        data-article="$resolve.article"
+                        data-comments-arr="$resolve.commentsArr"
+                    ></news-details>`,
+            url: '/article/:id',
+            resolve: {
+                article: ($stateParams, newsBlockService, requestsService, urlConfig, handlerService) => {
+                    let url = urlConfig.getArticleUrl($stateParams.id)
+                    let promise = requestsService.fetchData(url);
+                    return promise.then((article) => {
+                        article.postedDate = handlerService.timespanToHumanString(article.postedDate);
+                        return article;
+                    })
+                },
+                commentsArr: ($stateParams, urlConfig, requestsService) => {
+                    let url = urlConfig.getArticleDetailsUrl($stateParams.id)
+                    return requestsService.fetchData(url);
+                }
             }
-        }
-    })
+        })
 
 });

@@ -1,10 +1,11 @@
 class AuthorizeService {
 
-    constructor(userIdentification, $state, urlConfig, requestsService) {
+    constructor(userIdentification, $state, urlConfig, requestsService, newsBlockService) {
         this.userIdentification = userIdentification;
         this.$state = $state;
         this.urlConfig = urlConfig;
         this.requestsService = requestsService;
+        this.newsBlockService = newsBlockService;
 
     }
 
@@ -25,16 +26,17 @@ class AuthorizeService {
         return promiseResponse
             .then((data) => {
                 that.userIdentification.setUser(data);
-                that.$state.go('newsBlock', { type :'top'});
-        })
+                that.$state.go('newsBlock', { type: 'top' });
+            })
     }
 
     logOut() {
         this.userIdentification.delUser();
+        this.newsBlockService.refresh();
         if (this.$state.current.name === 'newsBlock') {
             this.$state.reload('newsBlock');
         } else {
-            this.$state.go('newsBlock', {type: 'top'});
+            this.$state.go('newsBlock', { type: 'top' });
         }
     }
 
@@ -46,26 +48,10 @@ class AuthorizeService {
         return promiseResponse
             .then((data) => {
                 that.userIdentification.setUser(data);
-                that.$state.go('newsBlock', {type: 'top'});
+                that.$state.go('newsBlock', { type: 'top' });
             })
     }
-
-    // authenticate(body) {
-    //     return fetch(this.urlConfig.authenticateUserUrl, this.getRequestParams(body))
-    //         .then((res) => {
-    //             if (res.status === 200) {
-    //                 return res.json()
-    //             } else {
-    //                 return Promise.reject(res.status)
-    //             }
-    //         })
-    //
-    //         .then((data) => {
-    //             this.identification.setUser(data);
-    //             this.$state.go('top', { page :'1'});
-    //         })
-    // }
 }
 
-AuthorizeService.$inject = ['userIdentification', '$state', 'urlConfig', 'requestsService'];
+AuthorizeService.$inject = ['userIdentification', '$state', 'urlConfig', 'requestsService', 'newsBlockService'];
 export default AuthorizeService;
