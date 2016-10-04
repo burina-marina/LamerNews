@@ -18,7 +18,7 @@
     margin-right: 5px;
 }
 
-.comment-author__image{
+.comment-author__image {
     width: 60px;
     height: 60px;
     margin: auto;
@@ -32,6 +32,7 @@
     align-self: stretch;
     background: #fff;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .comment__author {
@@ -40,6 +41,7 @@
     font: bold 16px 'GothamSSm-Book', serif;
     color: #4d4d4d;
 }
+
 .comment__author:hover {
     color: #fb6362;
 }
@@ -60,22 +62,26 @@
     color: #999;
     font: 12px 'GothamSSm-Book', serif;
 }
-.comment-by-container>*{
+
+.comment-by-container>* {
     display: inline-block;
     vertical-align: text-top;
 }
+
 .comment__date {
     color: #999;
     font: 12px 'GothamSSm-Book', serif;
 }
+
 .comment__article-link {
     color: #666;
     cursor: pointer;
 }
+
 .comment__article-link:hover {
     color: #fb6362
-
 }
+
 .delete-comment-button {
     display: block;
     cursor: pointer;

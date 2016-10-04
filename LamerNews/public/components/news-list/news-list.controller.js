@@ -1,14 +1,14 @@
 class NewsListController {
 
-    constructor(urlConfig, requestsService, $scope, $state, toastr, newsBlockService) {
+    constructor(urlConfig, requestsService, $scope, $state, toastr, newsBlockService, $element) {
 
         this.urlConfig = urlConfig;
         this.requestsService = requestsService;
         this.newsBlockService = newsBlockService;
         this.$scope = $scope;
         this.$state = $state;
+        this.$element = $element;
         this.toastr = toastr;
-
         this.newsListSet = {
             current: 0,
             state: {
@@ -25,6 +25,11 @@ class NewsListController {
 
     $onInit() {
         this.getNewNewsSet();
+    }
+    $postLink() {
+        var k = this.$element;
+        Ps.initialize(k[0]);
+        Ps.update(k[0]);
     }
 
     getNewNewsSet() {
@@ -63,6 +68,6 @@ class NewsListController {
 
 }
 
-NewsListController.$inject = ['urlConfig', 'requestsService', '$scope', '$state', 'toastr', 'newsBlockService'];
+NewsListController.$inject = ['urlConfig', 'requestsService', '$scope', '$state', 'toastr', 'newsBlockService', '$element'];
 
 export default NewsListController;

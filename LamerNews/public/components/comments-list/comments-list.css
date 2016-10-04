@@ -4,3 +4,7 @@
     font: bold 22px "Gotham Book", sans-serif;
     color: #999;
 }
+
+.comments-list {
+    height: 100%;
+}

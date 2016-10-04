@@ -1,11 +1,12 @@
 class CommentsListController {
 
-    constructor(toastr, $scope, $state, requestsService, urlConfig) {
+    constructor(toastr, $scope, $state, requestsService, urlConfig, $element) {
         // commentsArr
         // bindingPlace
         this.$state = $state;
         this.$scope = $scope;
         this.toastr = toastr;
+        this.$element = $element;
         this.requestsService = requestsService;
         this.urlConfig = urlConfig;
         this.deleteComment = this.deleteComment.bind(this);
@@ -18,6 +19,15 @@ class CommentsListController {
                 item.authorPhoto = this.bindingPlace.avatar;
             }
         }
+    }
+
+    $postLink() {
+        var k = this.$element;
+        Ps.initialize(k[0], {
+            scrollXMarginOffset: 100,
+            scrollYMarginOffset: 100
+        });
+        Ps.update(k[0]);
     }
 
     deleteComment(commentId) {
@@ -60,6 +70,6 @@ class CommentsListController {
 
 }
 
-CommentsListController.$inject = ['toastr', '$scope', '$state', 'requestsService', 'urlConfig'];
+CommentsListController.$inject = ['toastr', '$scope', '$state', 'requestsService', 'urlConfig', '$element'];
 
 export default CommentsListController;

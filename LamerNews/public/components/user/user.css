@@ -74,10 +74,13 @@
 
 .user-activity-container {
     /*max-width: 520px;*/
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     background-color: #404a58;
     width: 54%;
     border-radius: 5px;
+    position: relative;
 }
 
 .user-activity-choose {
@@ -115,4 +118,5 @@
 }
 .user-activity-contante {
     padding: 10px;
+    display: flex;
 }

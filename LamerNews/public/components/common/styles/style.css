@@ -1,12 +1,12 @@
 @import url(reset.css);
 @import url(fonts.css);
-
-html, body {
+html,
+body {
     height: 100%;
     background-color: #f0f0f0;
 }
 
-.basic-wrapper {
+.wrapper {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -17,23 +17,16 @@ html, body {
     background-color: #fff;
 }
 
-.content-wrapper {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
 .content-container {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    flex: 1 0 auto;
+    height: 100%;
 }
 
 .content-container>* {
     width: 100%;
 }
-
 
 footer {
     flex: 0 0 auto;
@@ -43,15 +36,13 @@ footer {
 }
 
 
-
-
-
-
-
 /*common */
-
 
 button.lockButton {
     background-color: #5d6b7f;
     cursor: auto;
+}
+
+.list--scrolling {
+    padding-right: 10px;
 }

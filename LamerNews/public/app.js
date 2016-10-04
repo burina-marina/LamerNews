@@ -2,6 +2,8 @@
 import './components/common/styles/style.css';
 import './components/common/styles/form-style.css';
 import './components/common/styles/angular-toastr.min.css';
+import './components/common/styles/perfect-scrollbar.css';
+import './components/common/styles/ng-scrollbar.min.css';
 
 import SiteHeaderComponent from './components/site-header/site-header.component';
 
@@ -19,8 +21,12 @@ import angular from 'angular';
 import 'angular-ui-router';
 import 'angular-toastr';
 import 'angular-animate';
+import 'ng-scrollbar';
+import * as Ps from 'perfect-scrollbar';
+window.Ps = Ps;
 
-var lamernews = angular.module('lamernews', ['ui.router', 'ngAnimate', 'toastr', 'news', 'authorize', 'user']);
+
+var lamernews = angular.module('lamernews', ['ui.router', 'ngAnimate', 'toastr', 'news', 'authorize', 'user', 'ngScrollbar']);
 // 'authorize', 'user'
 lamernews.component('siteHeader', new SiteHeaderComponent());
 lamernews.service('userIdentification', UserIdentificationService);
