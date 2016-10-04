@@ -43,6 +43,11 @@ button.lockButton {
     cursor: auto;
 }
 
-.list--scrolling {
+news-list,
+comments-list {
+    display: flex;
+    flex-direction: column;
+    position: relative;
     padding-right: 10px;
+    margin-right: -10px;
 }

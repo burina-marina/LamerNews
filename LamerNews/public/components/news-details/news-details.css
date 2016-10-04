@@ -18,15 +18,6 @@
         padding: 10px
     }
     
-    news-list,
-    comments-list {
-        /*height: 100%;*/
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        padding-right: 10px;
-    }
-    
     .article-comments__caption {
         display: block;
         margin-bottom: 10px;
