@@ -20,12 +20,12 @@ import angular from 'angular';
 import 'angular-ui-router';
 import 'angular-toastr';
 import 'angular-animate';
-import 'ng-scrollbar';
+// import 'ng-scrollbar';
 import * as Ps from 'perfect-scrollbar';
 window.Ps = Ps;
 
 
-var lamernews = angular.module('lamernews', ['ui.router', 'ngAnimate', 'toastr', 'news', 'authorize', 'user', 'ngScrollbar']);
+var lamernews = angular.module('lamernews', ['ui.router', 'ngAnimate', 'toastr', 'news', 'authorize', 'user']);
 // 'authorize', 'user'
 lamernews.component('siteHeader', new SiteHeaderComponent());
 lamernews.service('userIdentification', UserIdentificationService);

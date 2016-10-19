@@ -3,10 +3,10 @@
         <a href="#" class="logo-link">LamerNews</a>
     </h1>
 
-    <span class="nav-button">MENU</span>
+    <span class="nav-button" ng-click="$ctrl.toggleMenuVisibility()">MENU</span>
 
-    <div class="site-nav ">
-        <nav class="main-nav ">
+    <div class="site-nav">
+        <nav class="main-nav" ng-click="$ctrl.toggleMenuVisibility()">
             <ul class="main-nav__list ">
                 <li class="main-nav__item ">
                     <a ui-sref="newsBlock({type: 'top'}) " class="main-nav__link ">top</a>
@@ -23,7 +23,7 @@
             </ul>
         </nav>
 
-        <nav class="account-nav ">
+        <nav class="account-nav" ng-click="$ctrl.toggleMenuVisibility()">
             <ul ng-if="!$ctrl.userIdentification.username " class="account-nav__list ">
                 <li class="account-nav__item ">
                     <a ui-sref="authorize.registration " class="account-nav__register ">Check In</a>
@@ -41,5 +41,6 @@
                 </li>
             </ul>
         </nav>
+        <span class='close-button' ng-click="$ctrl.toggleMenuVisibility()"> close </span>
     </div>
 </header>
