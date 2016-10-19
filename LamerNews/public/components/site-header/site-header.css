@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 10px;
-    padding: 20px;
+    padding: 20px 10px;
     font-family: 'GothamSSm-Book', serif;
     color: #fff;
     background-color: #404a58;
@@ -15,6 +15,24 @@
 .logo {
     font-weight: bold;
     font-size: 26px;
+    margin-right: 40px;
+}
+
+
+/*navigation*/
+
+.nav-trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    clip: rect(0, 0, 0, 0);
+}
+
+.site-nav {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: inherit;
 }
 
 .main-nav__item {
@@ -30,11 +48,70 @@
 .account-nav__list {
     font-size: 0;
 }
-.account-nav__item>a {
+
+.account-nav__item {
     background-color: #fb6362;
-    padding: 10px;
     border-radius: 5px;
     font-size: 14px;
     margin-left: 5px;
+}
+
+.account-nav__item>a {
+    display: block;
     cursor: pointer;
+    padding: 10px;
+}
+
+@media (max-width: 1000px) {
+    .wrapper {
+        width: 99%;
+    }
+}
+
+@media (max-width: 640px) {
+    .unactive {
+        height: 100%;
+        overflow: hidden;
+    }
+    .nav-button {
+        display: block;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #fb6362;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .site-nav {
+        /*display: none;*/
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0.5%;
+        z-index: 1;
+        flex-direction: column;
+    }
+    .main-nav,
+    .account-nav {
+        width: 100%;
+    }
+    .main-nav__item,
+    .account-nav__item {
+        display: block;
+        font-size: 24px;
+        text-align: center;
+        background: #5d6b7f;
+        border-bottom: 4px solid #404a58
+    }
+    .site-nav a {
+        display: block;
+        padding: 20px;
+    }
+    .account-nav__item {
+        background-color: #fb6362;
+        border-radius: 0;
+        margin-left: 0;
+    }
 }

@@ -3,7 +3,6 @@ import './components/common/styles/style.css';
 import './components/common/styles/form-style.css';
 import './components/common/styles/angular-toastr.min.css';
 import './components/common/styles/perfect-scrollbar.css';
-import './components/common/styles/ng-scrollbar.min.css';
 
 import SiteHeaderComponent from './components/site-header/site-header.component';
 
