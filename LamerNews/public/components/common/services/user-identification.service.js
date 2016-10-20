@@ -2,8 +2,8 @@
  * Created by burin on 01.07.2016.
  */
 class UserIdentificationService {
-    constructor () {
-        this.isAuthorized= false;
+    constructor() {
+        this.isAuthorized = false;
         this.token = localStorage.token;
         this.username = localStorage.username;
         this.userPhoto = localStorage.userPhoto;

@@ -1,11 +1,12 @@
 class CommentsListController {
 
-    constructor(toastr, $scope, $state, requestsService, urlConfig, $element) {
+    constructor(toastr, $scope, $state, requestsService, urlConfig, $element, UIHelper) {
         // commentsArr
         // bindingPlace
         this.$state = $state;
         this.$scope = $scope;
         this.toastr = toastr;
+        this.UIHelper = UIHelper;
         this.$element = $element;
         this.requestsService = requestsService;
         this.urlConfig = urlConfig;
@@ -22,12 +23,11 @@ class CommentsListController {
     }
 
     $postLink() {
-        var k = this.$element;
-        Ps.initialize(k[0], {
-            scrollXMarginOffset: 100,
-            scrollYMarginOffset: 100
-        });
-        Ps.update(k[0]);
+        if (this.UIHelper.isDesktopSize) {
+            var k = this.$element;
+            Ps.initialize(k[0]);
+            Ps.update(k[0]);
+        }
     }
 
     deleteComment(commentId) {
@@ -70,6 +70,6 @@ class CommentsListController {
 
 }
 
-CommentsListController.$inject = ['toastr', '$scope', '$state', 'requestsService', 'urlConfig', '$element'];
+CommentsListController.$inject = ['toastr', '$scope', '$state', 'requestsService', 'urlConfig', '$element','UIHelper'];
 
 export default CommentsListController;

@@ -10,6 +10,7 @@ import UserIdentificationService from './components/common/services/user-identif
 import UrlConfigService from './components/common/services/url-config.service';
 import RequestsService from './components/common/services/requests.service';
 import HandlerService from './components/common/services/handler.service';
+import UIHelper from './components/common/services/ui.helper';
 import AuthorizeService from './components/common/services/authorize.service';
 
 import './components/news-block/news.module';
@@ -31,6 +32,7 @@ lamernews.component('siteHeader', new SiteHeaderComponent());
 lamernews.service('userIdentification', UserIdentificationService);
 lamernews.service('urlConfig', UrlConfigService);
 lamernews.service('handlerService', HandlerService);
+lamernews.service('UIHelper', UIHelper);
 lamernews.service('requestsService', RequestsService);
 lamernews.service('authorizeService', AuthorizeService);
 

@@ -1,6 +1,6 @@
 class NewsListController {
 
-    constructor(urlConfig, requestsService, $scope, $state, toastr, newsBlockService, $element) {
+    constructor(urlConfig, requestsService, $scope, $state, toastr, newsBlockService, $element, UIHelper) {
 
         this.urlConfig = urlConfig;
         this.requestsService = requestsService;
@@ -8,6 +8,7 @@ class NewsListController {
         this.$scope = $scope;
         this.$state = $state;
         this.$element = $element;
+        this.UIHelper = UIHelper;
         this.toastr = toastr;
         this.newsListSet = {
             current: 0,
@@ -26,10 +27,13 @@ class NewsListController {
     $onInit() {
         this.getNewNewsSet();
     }
+    
     $postLink() {
-        var k = this.$element;
-        Ps.initialize(k[0]);
-        Ps.update(k[0]);
+        if (this.UIHelper.isDesktopSize) {
+            var k = this.$element;
+            Ps.initialize(k[0]);
+            Ps.update(k[0]);
+        }
     }
 
     getNewNewsSet() {
@@ -68,6 +72,6 @@ class NewsListController {
 
 }
 
-NewsListController.$inject = ['urlConfig', 'requestsService', '$scope', '$state', 'toastr', 'newsBlockService', '$element'];
+NewsListController.$inject = ['urlConfig', 'requestsService', '$scope', '$state', 'toastr', 'newsBlockService', '$element', 'UIHelper'];
 
 export default NewsListController;

@@ -1,59 +1,59 @@
 class UrlConfigService {
     constructor() {
-
-        this.createUserUrl = "http://localhost:3001/app/user/create";
-        this.authenticateUserUrl = "http://localhost:3001/app/user/authenticate";
-        this.createArticleUrl = "http://localhost:3001/app/submit/article";
-        this.userUrl = "http://localhost:3001/app/user/info";
-        this.checkAuthorization = "http://localhost:3001/app/user/checkautorization"
+        this.origin = window.location.origin;
+        this.createUserUrl = `${this.origin}/app/user/create`;
+        this.authenticateUserUrl = `${this.origin}/app/user/authenticate`;
+        this.createArticleUrl = `${this.origin}/app/submit/article`;
+        this.userUrl = `${this.origin}/app/user/info`;
+        this.checkAuthorization = `${this.origin}/app/user/checkautorization`;
     }
 
     getNewsListUrl(state, listSet) {
         if (state.name == "newsBlock" || state.name == "newsBlock.details") {
-            return `http://localhost:3001/app/article/${state.params.type}/${listSet}`
+            return `${this.origin}/app/article/${state.params.type}/${listSet}`
         } else {
-            return `http://localhost:3001/app/user/info/${state.params.username}/posts/${listSet}`;
+            return `${this.origin}/app/user/info/${state.params.username}/posts/${listSet}`;
         }
     }
 
     getArticleTitleUrl(id) {
-        return `http://localhost:3001/app/admin/article/${id}`;
+        return `${this.origin}/app/admin/article/${id}`;
     }
 
     getUpdateArticleUrl(id) {
-        return `http://localhost:3001/app/admin/article/${id}`;
+        return `${this.origin}/app/admin/article/${id}`;
     }
 
     getDeleteArticleUrl(id) {
-        return `http://localhost:3001/app/admin/article/${id}`;
+        return `${this.origin}/app/admin/article/${id}`;
     }
 
 
     getTopArticleUrl(page) {
-        return `http://localhost:3001/app/article/top/${page}`;
+        return `${this.origin}/app/article/top/${page}`;
     }
 
     getLatestArticleUrl(page) {
-        return `http://localhost:3001/app/article/latest/${page}`;
+        return `${this.origin}/app/article/latest/${page}`;
     }
 
 
     getVoteArticleUrl(id, state) {
-        return `http://localhost:3001/app/vote/article/${id}/${state}`;
+        return `${this.origin}/app/vote/article/${id}/${state}`;
     }
 
 
 
     getUserUrl(username) {
-        return `http://localhost:3001/app/user/info/${username}`;
+        return `${this.origin}/app/user/info/${username}`;
     }
 
     getUserPasswordUrl(username) {
-        return `http://localhost:3001/app/user/info/${username}/password`;
+        return `${this.origin}/app/user/info/${username}/password`;
     }
 
     getUserEmailUrl(username) {
-        return `http://localhost:3001/app/user/info/${username}/email`;
+        return `${this.origin}/app/user/info/${username}/email`;
     }
 
     // getUserPostsUrl(username, page) {
@@ -61,7 +61,7 @@ class UrlConfigService {
     // }
 
     getUserCommentsUrl(username) {
-        return `http://localhost:3001/app/user/info/${username}/comments`;
+        return `${this.origin}/app/user/info/${username}/comments`;
     }
 
 
@@ -69,19 +69,19 @@ class UrlConfigService {
 
 
     getArticleDetailsUrl(articleId) {
-        return `http://localhost:3001/app/article/about/${articleId}/comments`;
+        return `${this.origin}/app/article/about/${articleId}/comments`;
     }
     getArticleUrl(articleId) {
-        return `http://localhost:3001/app/article/about/${articleId}`;
+        return `${this.origin}/app/article/about/${articleId}`;
     }
     getUserPhotoUrl(username) {
-        return `http://localhost:3001/app/user/${username}/photo`;
+        return `${this.origin}/app/user/${username}/photo`;
     }
     getCreateCommentUrl(articleId) {
-        return `http://localhost:3001/app/comment/add/to/${articleId}`;
+        return `${this.origin}/app/comment/add/to/${articleId}`;
     }
     getDeleteCommentUrl(commentId) {
-        return `http://localhost:3001/app/comment/delete/${commentId}`;
+        return `${this.origin}/app/comment/delete/${commentId}`;
     }
 }
 

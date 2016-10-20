@@ -1,12 +1,12 @@
 class NewsItemController {
 
-    constructor(toastr, $scope, handlerService, $state, newsBlockService, $document) {
+    constructor(toastr, $scope, handlerService, $state, newsBlockService, UIHelper) {
         // article;
         this.newsBlockService = newsBlockService;
         this.$scope = $scope;
         this.$state = $state;
         this.toastr = toastr;
-        this.$document = $document;
+        this.UIHelper = UIHelper;
         this.handlerService = handlerService;
         this.setArticleActiveState = this.setArticleActiveState();
     }
@@ -25,7 +25,7 @@ class NewsItemController {
     }
 
     showDetails() {
-        if (this.$document.find('body')[0].clientWidth > 1000) {
+        if (this.UIHelper.isDesktopSize) {
             this.setArticleActiveState(this.article);
             this.newsBlockService.showDetails(this.article);
         } else {
@@ -36,6 +36,6 @@ class NewsItemController {
     }
 
 }
-NewsItemController.$inject = ['toastr', '$scope', 'handlerService', '$state', 'newsBlockService', '$document'];
+NewsItemController.$inject = ['toastr', '$scope', 'handlerService', '$state', 'newsBlockService', 'UIHelper'];
 
 export default NewsItemController;
