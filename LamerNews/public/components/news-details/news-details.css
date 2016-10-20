@@ -77,14 +77,16 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
     
-    .details-article__close-button:after {
-        content: "";
+    .details-article__close-button {
+        background: #fb6362;
+        padding: 7px;
+        margin-bottom: 15px;
+        border-radius: 5px;
         display: block;
-        width: 30px;
-        height: 30px;
-        margin: auto;
-        background-image: url(/dist/f21b4d278c69f198d6264b7ff45ad936.png);
-        background-position: 0 0;
+        color: #fff;
+        font: bold 16px "Gotham Book", sans-serif;
+        cursor: pointer;
     }

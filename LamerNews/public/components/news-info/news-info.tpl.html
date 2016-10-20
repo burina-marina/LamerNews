@@ -4,17 +4,12 @@
         <img class="article-info__image" src="{{$ctrl.article.authorPhoto}}" alt="userPhoto">
     </div>
 
-    <news-updating 
-            data-article="$ctrl.article" 
-            data-is-update-state="$ctrl.isUpdateState"
-            class="updating-article-form__container" 
-            ng-if="$ctrl.isUpdateState"
-    ></news-updating>
+    <news-updating data-article="$ctrl.article" data-is-update-state="$ctrl.isUpdateState" class="updating-article-form__container" ng-if="$ctrl.isUpdateState"></news-updating>
 
     <div ng-if="!$ctrl.isUpdateState" class="article-info__details-container">
         <div class="article__title-container">
             <h2 class="article__title">
-                <a href='#'>{{$ctrl.article.title}}</a>
+                <a href='#' target='_blank'>{{$ctrl.article.title}}</a>
             </h2>
 
             <ul class="article-activity__list" ng-if="$ctrl.isShowControlPanel">
@@ -24,12 +19,7 @@
                 <li class="article-activity__item">
                     <a ng-click="$ctrl.newsBlockService.deleteArticle($ctrl.article);">delete</a>
                 </li>
-            <ul>
-                    <!--<a
-                    class="article__control-button" 
-                    ng-if="$ctrl.isShowControlPanel" 
-                    ui-sref="article({id: $ctrl.article.articleId})"
-            >update</a>-->
+                <ul>
         </div>
 
         <div class="article-info__details">

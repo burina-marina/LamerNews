@@ -70,3 +70,10 @@ comments-list {
     padding-right: 10px;
     margin-right: -10px;
 }
+
+@media (max-width: 1000px) {
+    news-list,
+    comments-list {
+        width: 100%;
+    }
+}

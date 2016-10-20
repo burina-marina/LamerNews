@@ -1,11 +1,12 @@
 class NewsItemController {
 
-    constructor(toastr, $scope, handlerService, $state, newsBlockService) {
+    constructor(toastr, $scope, handlerService, $state, newsBlockService, $document) {
         // article;
         this.newsBlockService = newsBlockService;
         this.$scope = $scope;
         this.$state = $state;
         this.toastr = toastr;
+        this.$document = $document;
         this.handlerService = handlerService;
         this.setArticleActiveState = this.setArticleActiveState();
     }
@@ -24,11 +25,17 @@ class NewsItemController {
     }
 
     showDetails() {
-        this.setArticleActiveState(this.article);
-        this.newsBlockService.showDetails(this.article)
+        if (this.$document.find('body')[0].clientWidth > 1000) {
+            this.setArticleActiveState(this.article);
+            this.newsBlockService.showDetails(this.article);
+        } else {
+            this.newsBlockService.setPrevState();
+            this.$state.go('article', { id: this.article.articleId });
+        }
+
     }
 
 }
-NewsItemController.$inject = ['toastr', '$scope', 'handlerService', '$state', 'newsBlockService'];
+NewsItemController.$inject = ['toastr', '$scope', 'handlerService', '$state', 'newsBlockService', '$document'];
 
 export default NewsItemController;

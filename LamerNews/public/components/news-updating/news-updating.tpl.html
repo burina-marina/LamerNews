@@ -36,6 +36,7 @@
                     class="update-article-form__input-field input-field"
                     ng-model="$ctrl.data.link"
                     required
+                    ng-pattern="/^((https?|ftp)\:\/\/)?([a-z0-9]{1})((\.[a-z0-9-])|([a-z0-9-]))*\.([a-z]{2,6})(\/?)$/"
             />
         </label>
         <p

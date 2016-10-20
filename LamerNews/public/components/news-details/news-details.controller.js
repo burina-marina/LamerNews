@@ -1,6 +1,6 @@
 class NewsDetailsController {
 
-    constructor($state, toastr, $scope, requestsService, urlConfig, userIdentification) {
+    constructor($state, toastr, $scope, requestsService, urlConfig, userIdentification, newsBlockService) {
         // commentsArr
         this.$state = $state;
         this.toastr = toastr;
@@ -8,6 +8,7 @@ class NewsDetailsController {
         this.requestsService = requestsService;
         this.urlConfig = urlConfig;
         this.userIdentification = userIdentification;
+        this.newsBlockService = newsBlockService;
 
         this.addComment = this.addComment.bind(this);
         this.isEmptyCommentsArr = this.commentsArr.length == 0;
@@ -16,6 +17,18 @@ class NewsDetailsController {
     closeDetails() {
         this.article.isActive = false;
         this.$state.go('newsBlock', { type: this.$state.params.type })
+    }
+
+    returnBack() {
+        if (this.newsBlockService.prevState.name) {
+            this.$state.go(this.newsBlockService.prevState.name, this.newsBlockService.prevState.params);
+            this.newsBlockService.prevState.name = null;
+            this.newsBlockService.prevState.params = null;
+        } else {
+            this.$state.go('user', { username: this.article.author });
+        }
+
+
     }
 
     addComment(commentData) {
@@ -46,6 +59,6 @@ class NewsDetailsController {
 
 }
 
-NewsDetailsController.$inject = ['$state', 'toastr', '$scope', 'requestsService', 'urlConfig', 'userIdentification'];
+NewsDetailsController.$inject = ['$state', 'toastr', '$scope', 'requestsService', 'urlConfig', 'userIdentification', 'newsBlockService'];
 
 export default NewsDetailsController;

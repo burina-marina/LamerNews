@@ -1,12 +1,3 @@
-.user-info-container {
-    box-sizing: border-box;
-    width: 450px;
-    /*height: 400px;*/
-    background-color: #404a58;
-    padding: 15px;
-    border-radius: 5px;
-}
-
 .user-info {
     box-sizing: border-box;
     width: 100%;

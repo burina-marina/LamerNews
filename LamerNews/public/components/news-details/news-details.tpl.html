@@ -8,7 +8,7 @@
         
         <div ng-if="$ctrl.$state.current.name === 'article'" class="details-article__caption">
             <h2 class="news-list__caption" >Article Information</h2>
-            <a ui-sref="user({username: $ctrl.article.author})" class="details-article__close-button"> </a>   
+            <a ng-click="$ctrl.returnBack()" class="details-article__close-button">close</a>   
         </div>
 
         <news-info data-article="$ctrl.article"></news-info>

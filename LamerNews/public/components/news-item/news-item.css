@@ -104,11 +104,12 @@
 .news-article__control-button:after {
     content: "";
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 20px;
     margin: auto;
-    background-image: url("./../common/images/sprite.png");
+    background-image: url(/dist/ec32d3b9501f794c2146e71b9d306398.png);
     background-position: 0 0;
+    background-position: -44px -34px;
 }
 
 .isActive {

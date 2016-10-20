@@ -10,6 +10,11 @@ class NewsBlockService {
             isActive: false,
             article: {}
         }
+
+        this.prevState = {
+            stateName: null,
+            prop: null
+        }
     }
 
     showDetails(article) {
@@ -24,6 +29,13 @@ class NewsBlockService {
         this.preview.article = {};
     }
 
+    setPrevState() {
+        this.prevState = {
+            name: this.$state.current.name,
+            params: this.$state.params
+        }
+    }
+
     hideDetails() {
         this.preview.isActive = false;
         this.preview.article = {};
@@ -36,7 +48,7 @@ class NewsBlockService {
         response
             .then((res) => {
                 that.toastr.success('Article is deleted!');
-                that.$state.go('user', {username: article.author});
+                that.$state.go('user', { username: article.author });
             })
             .catch(() => {
                 that.toastr.error('Server Err');
