@@ -28,7 +28,6 @@ class UrlConfigService {
         return `${this.origin}/app/admin/article/${id}`;
     }
 
-
     getTopArticleUrl(page) {
         return `${this.origin}/app/article/top/${page}`;
     }
@@ -37,12 +36,9 @@ class UrlConfigService {
         return `${this.origin}/app/article/latest/${page}`;
     }
 
-
     getVoteArticleUrl(id, state) {
         return `${this.origin}/app/vote/article/${id}/${state}`;
     }
-
-
 
     getUserUrl(username) {
         return `${this.origin}/app/user/info/${username}`;
@@ -56,17 +52,9 @@ class UrlConfigService {
         return `${this.origin}/app/user/info/${username}/email`;
     }
 
-    // getUserPostsUrl(username, page) {
-    //
-    // }
-
     getUserCommentsUrl(username) {
         return `${this.origin}/app/user/info/${username}/comments`;
     }
-
-
-
-
 
     getArticleDetailsUrl(articleId) {
         return `${this.origin}/app/article/about/${articleId}/comments`;

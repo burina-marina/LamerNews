@@ -7,7 +7,6 @@ class NewsInfoController {
         this.isUpdateState = false;
     }
 
-
 }
 
 NewsInfoController.$inject = ['$state', 'newsBlockService'];
