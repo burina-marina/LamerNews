@@ -1,6 +1,3 @@
-/**
- * Created by burin on 01.07.2016.
- */
 class UserIdentificationService {
     constructor() {
         this.isAuthorized = false;
