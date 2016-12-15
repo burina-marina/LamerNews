@@ -10,9 +10,9 @@
   "author": "burina-marina",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.5.7",
-    "angular-animate": "^1.5.8",
-    "angular-route": "^1.5.7",
+    "angular": "1.5.7",
+    "angular-animate": "1.5.8",
+    "angular-route": "1.5.7",
     "angular-toastr": "^1.7.0",
     "angular-ui-router": "^0.3.1",
     "babel": "^6.5.2",
